@@ -1,0 +1,56 @@
+<div class="row d-flex justify-content-center" style="padding: 0;margin: 0;">
+    <div class="col-xl-5 text-center headerTag" style="border-radius: 20px 20px 0px 0px;">
+        <span class="ctext-color"><b>Sales</b></span>
+    </div>
+</div>
+<div class="card" style="border-radius: 10px;background-color: #2C2E43">
+    <form [formGroup]="addSalesForm" (ngSubmit)="AddSales($event)">
+        <div class="row">
+            <div class="col-lg-5">
+                <label class="form-label h5">Product&nbsp;Name
+                </label>
+                <input type="text" formControlName="productName"
+                class="form-control"
+                [ngClass]="{'product-name':addSalesForm.controls.productName.dirty == true && addSalesForm.controls.productName.value.length != 0}" placeholder="Product Name">
+                <span class="label"
+                    *ngIf="(addSalesForm.controls.productName.touched && addSalesForm.controls.productName.pristine)">
+                    Required
+                </span>
+            </div>
+            <div class="col-lg-7">
+                <label class="form-label h5"> Phone&nbsp;Number
+                </label>
+                <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Enter 10 digits"
+                    maxlength="10">
+                <span class="label"
+                    *ngIf="(addSalesForm.controls.phoneNumber.touched && addSalesForm.controls.phoneNumber.pristine)">
+                    Please enter customer number</span>
+                <span class="label"
+                    *ngIf="addSalesForm.controls.phoneNumber.dirty && addSalesForm.controls.phoneNumber.errors?.checkIfNumberOnly">
+                    Invalid Input</span>
+                <span class="label"
+                    *ngIf="addSalesForm.controls.phoneNumber.dirty && addSalesForm.controls.phoneNumber.errors?.minLength">
+                    Please enter
+                    10 digits</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <label class="form-label h5">
+                    Price
+                </label>
+                <input type="text" class="form-control" formControlName="price" placeholder="Rs">
+                <span class="label"
+                    *ngIf="(addSalesForm.controls.price.touched && addSalesForm.controls.price.pristine)">
+                    Required
+                </span>
+                <span class="label" *ngIf="addSalesForm.controls.price.dirty && addSalesForm.controls.price.invalid">
+                    Invalid Input</span>
+            </div>
+            <div class="col-lg-5">
+                <div style="height: 1.92rem;"></div>
+                <button #submitButton class="btn" style="width: 100%;">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+<div class="row d-flex justify-content-center" style="padding: 0;margin: 0;">
+  <div class="col-xl-5 text-center headerTag" style="border-radius: 20px 20px 0px 0px;">
+    <span class="ctext-color"><b>Registration</b></span>
+  </div>
+</div>
+
+<div class="card" style="border-radius: 10px; background-color: #2C2E43">
+  <form [formGroup]="registerForm" (ngSubmit)="RegisterCustomer(registerForm)">
+    <div class="row">
+      <div class="col-lg-5">
+        <label class="form-label h5">
+          Name
+        </label>
+        <input type="text" formControlName="customerName" class="form-control name" placeholder="Name">
+        <span class="feedback"
+          *ngIf="(registerForm.controls.customerName.touched && registerForm.controls.customerName.pristine)">
+          Required
+        </span>
+      </div>
+      <div class="col-lg-7">
+        <label class="form-label h5">
+          Phone Number
+        </label>
+        <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Enter 10 digits"
+          maxlength="10">
+        <span class="feedback"
+          *ngIf="(registerForm.controls.phoneNumber.touched && registerForm.controls.phoneNumber.pristine)">
+          Please enter customer number</span>
+        <span class="feedback"
+          *ngIf="registerForm.controls.phoneNumber.dirty && registerForm.controls.phoneNumber.errors?.checkIfNumberOnly">
+          Invalid Input</span>
+        <span class="feedback"
+          *ngIf="registerForm.controls.phoneNumber.dirty && registerForm.controls.phoneNumber.errors?.minLength">
+          Please enter
+          10 digits</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+        <label class="form-label h5">E-mail</label>
+        <input type="email" formControlName="email" class="form-control" placeholder="Optional">
+        <span class="feedback"
+          *ngIf="registerForm.controls.email.dirty && registerForm.controls.email.errors?.pattern">
+          Email Invalid</span>
+      </div>
+      <div class="col-lg-5">
+        <div style="height: 1.92rem;"></div>
+        <button #submitButton
+        class="btn" style="width: inherit;">SUBMIT</button>
+      </div>
+    </div>
+  </form>
+</div>

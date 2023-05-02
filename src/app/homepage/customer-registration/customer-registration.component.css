@@ -1,0 +1,44 @@
+.row {
+  padding: 10px;
+}
+
+.form-name {
+  rotate: -90deg;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.headerTag{
+  background-color: #B2B1B9;
+}
+
+.name{
+  text-transform:capitalize;
+}
+
+.ctext-color{
+  color:#2C2E43;
+  text-transform: uppercase;
+}
+
+.btn{
+  color: #2C2E43;
+  background-color: #B2B1B9;
+  font-weight:700;
+  text-transform: uppercase;
+}
+
+.btn:hover{
+  border-color: #B2B1B9;
+}
+
+.btn:focus{
+  border-color: #B2B1B9;
+}
+
+label{
+  color: #FFD523;
+}
+
+.feedback{
+  color: #FFD523;
+}

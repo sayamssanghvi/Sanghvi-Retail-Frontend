@@ -1,0 +1,45 @@
+.row-negative-margin{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.rr-code{
+    background-color: #FFFFFF;
+    font-size: xx-large;
+    line-height: 1.9;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.cproblem-back{
+    background-color:white;
+}
+
+.problem{
+    background-color: white;
+}
+
+.problem:hover{
+    cursor: pointer;
+    background-color:  #B2B1B9;
+}
+
+.btn{
+  color: #2C2E43;
+  background-color: #B2B1B9;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+label{
+  color: #FFD523;
+}
+
+
+.ctext{
+    color: #2C2E43;
+}
+
+/* .ctext:hover{
+    color: white;
+} */
