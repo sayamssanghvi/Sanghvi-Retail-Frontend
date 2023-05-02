@@ -1,0 +1,53 @@
+<div class="homepage">
+    <div style="padding-bottom: 20px;">
+        <div style="text-align: center;">
+            <h1 class="display-3 label">{{title}}
+            </h1>
+            <hr style="border-top:1px solid #FFD523;width:300px">
+        </div>
+    </div>
+    <br>
+    <div class="card login-card">
+        <form [formGroup]="loginForm" (ngSubmit)="SubmitForm(loginForm)" style="width: 75%;margin: 0 auto;">
+            <div class="mb-3">
+                <label class="form-label label">
+                    <h4>Phonenumber</h4>
+                </label>
+                <input type="text" formControlName="phonenumber" class="form-control"
+                    placeholder="Enter 10 digit phonenumber">
+
+                <p class="label"
+                    *ngIf="(loginForm.controls.phonenumber.touched && loginForm.controls.phonenumber.pristine)">Please
+                    enter your number</p>
+                <p class="label"
+                    *ngIf="loginForm.controls.phonenumber.dirty && loginForm.controls.phonenumber.errors?.checkIfNumberOnly">
+                    Invalid Input</p>
+                <p class="label"
+                    *ngIf="loginForm.controls.phonenumber.dirty && loginForm.controls.phonenumber.errors?.minLength">
+                    Please enter 10 digits</p>
+
+                <br *ngIf="!(loginForm.controls.phonenumber.dirty && loginForm.controls.phonenumber.errors?.minLength) && !(loginForm.controls.phonenumber.dirty && loginForm.controls.phonenumber.errors?.checkIfNumberOnly) && !(loginForm.controls.phonenumber.touched && loginForm.controls.phonenumber.pristine)">
+
+                <label class="form-label label">
+                    <h4>Password</h4>
+                </label>
+
+                <input type="password" formControlName="password" class="form-control" placeholder="Enter password">
+
+                <div class="label"
+                    *ngIf="(loginForm.controls.password.touched && loginForm.controls.password.pristine)">
+                    Invalid Input
+                </div>
+            </div>
+            <br *ngIf="!(loginForm.controls.password.pristine && 
+                    loginForm.controls.phonenumber.pristine && 
+                    loginResponse.length>0)">
+            <p class="label" *ngIf="loginForm.controls.password.pristine && 
+                    loginForm.controls.phonenumber.pristine && 
+                    loginResponse.length>0">
+                {{loginResponse}}
+            </p>
+            <button #submitButton type="submit" class="btn" [disabled]="!loginForm.valid">SUBMIT</button>
+        </form>
+    </div>
+</div>

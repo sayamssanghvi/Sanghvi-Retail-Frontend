@@ -1,0 +1,19 @@
+<app-nav #navComponent></app-nav>
+<div class="row homepage" [ngStyle]="{'height.px':remainingScreenHeight}">
+    <div class="col-xl-6" style="padding:20px">
+        <div class="row d-flex justify-content-center" style="height:50%;align-items: center    ;">
+            <app-add-sales></app-add-sales>
+        </div>
+        <div class="row d-flex justify-content-center" style="height: 50%;">
+            <app-rotiroaster-registration class="w-100" style="padding: 0px 90px;"></app-rotiroaster-registration>
+        </div>
+    </div>
+    <div class="col-xl-6" style="padding:20px">
+        <div class="row d-flex justify-content-center" style="height:50%;align-items: center    ;">
+            <app-customer-registration></app-customer-registration>
+        </div>
+        <div class="row d-flex justify-content-center" style="height: 50%;">
+            <app-previous-sales class="w-100" style="padding: 0px 90px;"></app-previous-sales>
+        </div>
+    </div>
+</div>

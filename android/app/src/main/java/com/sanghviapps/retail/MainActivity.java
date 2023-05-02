@@ -1,0 +1,5 @@
+package com.sanghviapps.retail;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}

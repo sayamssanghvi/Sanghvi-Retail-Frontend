@@ -1,0 +1,45 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.snackbar {
+  color: #2C2E43;
+  background-color: #B2B1B9;
+}
+
+.mat-simple-snackbar span {
+  margin: auto;
+  text-align: center;
+}
+
+.custom-dailog-light .mat-dialog-container {
+  margin: 0px ;
+  padding: 10px ;
+  padding-left: 20px ;
+  background-color: white ;
+}
+
+.custom-mat-dailog .mat-dialog-container {
+  margin: 0px;
+  padding: 10px;
+  padding-left: 20px;
+  background-color: #595260;
+}
+
+.currency-icon {
+  font-size: 16px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.pl5 {
+  padding-left: 5px;
+}
+
+mat-icon {
+  cursor: pointer;
+}

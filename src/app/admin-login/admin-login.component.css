@@ -1,0 +1,30 @@
+.homepage{
+    height: 100vh;
+    background-color: #595260;
+}
+
+.feedback{
+   color: #dc3545
+}
+
+.login-card{
+    width: 30% ;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background-color: #2C2E43;
+}
+
+.label{
+  color: #FFD523;
+}
+
+.btn{
+  color: #2C2E43;
+  background-color: #B2B1B9;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 100%;
+  margin:0 auto;
+}

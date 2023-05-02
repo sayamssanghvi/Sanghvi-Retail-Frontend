@@ -1,0 +1,29 @@
+.pad-0 {
+    padding: 0px;
+}
+
+.body-content {
+    color: #E5E5E5;
+    padding: 20px 0px 0px 0px;
+    border-radius: 16px;
+}
+
+.body-content-title {
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #2C2E43;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    color: #E5E5E5;
+}   
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

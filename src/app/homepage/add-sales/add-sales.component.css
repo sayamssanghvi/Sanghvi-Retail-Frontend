@@ -1,0 +1,40 @@
+.row {
+  padding: 10px;
+}
+
+.headerTag{
+  background-color: #B2B1B9;
+}
+
+.ctext-color{
+  color:#2C2E43;
+  text-transform: uppercase;
+}
+
+.product-name{
+  text-transform: uppercase;
+}
+
+.btn{
+  color: #2C2E43;
+  background-color: #B2B1B9;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.btn:hover{
+  border-color: #B2B1B9;
+}
+
+.btn:focus{
+  border-color: #B2B1B9;
+}
+
+label{
+  color: #FFD523;
+}
+
+.label{
+  color: #FFD523;
+}

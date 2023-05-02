@@ -1,0 +1,42 @@
+<div class="w-100 h-100">
+    <div class="card w-100 h-100 p-3" style="border-radius: 10px;background-color: #2C2E43;">
+        <div class="row row-negative-margin w-100 h-100 overflow-hidden" [formGroup]="formGroup">
+            <div class="col-xl-6" #rightColumn>
+                <div class="row mb-4">
+
+                    <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number">
+                
+                    <div class="form-check w-100 text-center mt-2" (click)="callBeforeRepairSelect()" >
+                        <input #callBeforeRepairCheckBox formControlName="callBeforeRepair" class="form-check-input" type="checkbox" >
+                        <label class="form-check-label">Call Before Repair</label>
+                    </div>
+
+                </div>
+                <div class="row mb-3">
+                    <button type="submit"
+                    #submitButton class="btn w-100" (click)="GenerateCodeClick($event)" > <b>GENERATE CODE</b> </button>
+                </div>
+                <div class="row">
+                    <textarea class="form-control w-100 rr-code text-center" formControlName="rCode" cols="30"
+                        rows="1"></textarea>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="cproblem-back w-100 overflow-auto"
+                    [ngStyle]="{'height.px':problemDivHeight,'position':'absolute'}">
+
+                    <div *ngFor="let problem of problems.faults | keyvalue" class="m-0 p-0 problem"
+                        [ngStyle]="{'background-color':problem.value?'#b2b1b9':'#ffffff'}"
+                        (click)="OnProblemClick(problem.key)">
+
+                        <p class="ctext m-0 ml-1 p-1">{{problem.key}}
+                            <img src="../../../assets/done_white.png" style="float: right;">
+                        </p>
+                        <hr class="m-0 p-0">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

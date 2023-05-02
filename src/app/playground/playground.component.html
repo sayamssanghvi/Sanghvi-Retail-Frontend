@@ -1,0 +1,5 @@
+<div class="container">
+    <button (click)="Display()" >Display Details</button>
+    <p *ngIf="displayPara">Sanghvi Sales password:0000</p>
+    <div *ngFor="let a of logClicks;let i = index" [ngStyle]="{backgroundColor:i>=5?'blue':'white'}" [ngClass]="{five:i>=5}">{{a}}</div>
+</div>
