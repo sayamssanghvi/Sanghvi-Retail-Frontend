@@ -6,6 +6,7 @@
   },
   "scripts": {
     "ng": "ng",
+    "reinstall":"npm i --force",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
