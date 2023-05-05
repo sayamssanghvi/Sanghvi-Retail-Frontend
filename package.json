@@ -6,9 +6,9 @@
   },
   "scripts": {
     "ng": "ng",
-    "build:digitalocean": "npm install --production=false --force && npm run build && npm ci",
+    "build": "npm install --production=false --force && npm run build && npm ci",
     "start": "ng serve",
-    "build": "ng build",
+    // "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
