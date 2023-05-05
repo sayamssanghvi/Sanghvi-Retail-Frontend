@@ -6,7 +6,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "reinstall":"npm i --force",
+    "build:digitalocean": "npm install --production=false --force && npm run build && npm ci",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
