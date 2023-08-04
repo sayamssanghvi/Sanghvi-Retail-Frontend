@@ -5,6 +5,7 @@ export class Dates {
     constructor() {
         this.DateNames.set("receivedDate", "Received");
         this.DateNames.set("estimateGivenDate", "Estimate Given");
+        this.DateNames.set("estimateApprovedDate", "Estimate Approved Date");
         this.DateNames.set("inRepairStartDate", "InRepair Start");
         this.DateNames.set("sentToFactoryDate", "Sent To Factory");
         this.DateNames.set("repairedDate", "Repaired");

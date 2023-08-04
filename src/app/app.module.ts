@@ -32,6 +32,7 @@ import { RepairComponent } from './repair/repair.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
+import { SnackBarService } from './services/utility/snack-bar.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.
     RouteMappingService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-    AdminService
+    AdminService,
+    SnackBarService
   ],
   bootstrap: [AppComponent]
 })

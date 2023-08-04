@@ -9,5 +9,23 @@ export class Messages {
     public CUSTOMER_REGISTERED: string = 'Customer has been Registered';
     public ENTER_PHNO: string = "Please enter a PhoneNumber to view sales/repair";
     public NO_RECORDS_FOUND: string = "No records found for this phoneNumber";
-    public PARTS_SUBMITTED:string="Parts have been submitted for {{machineRepairCode}}";
+    public PARTS_SUBMITTED: string = "Parts have been submitted for {{machineRepairCode}}";
+    public ENETR_A_REASON: string = 'Please enter a reason';
+    public DELIVERED_TO_CUSTOMER: string = "Machine delivered to customer";
 }
+
+//Confirm Dialog Box Messages
+export const CONFIRM_TO_DELIVER_TO_CUSTOMER: string =
+  'Are you sure you want to deliver machine?';
+export const CONFIRM_TO_SEND_TO_FACTORY: string =
+  'Are you sure you want to send to factory?';
+export const CONFIRM_TO_APPROVE_ESTIMATE: string =
+  "Are you sure you want to approve the estimate?";
+
+//Snack Bar Messages
+export const MACHINE_SENT_TO_FACTORY: string = "Machine sent to Factory";
+export const ESTIMATE_SUBMITTED: string = "ESTIMATE has been submitted";
+export const ESTIMATE_NOT_APPROVED: string = 'Estimate NOT APPROVED by customer';
+export const GIVE_ESTIMATE: string = 'Enter Parts to give ESTIMATE';
+export const ESTIMATE_APPROVED: string = "The estimate from Customer has been approved";
+export const DISCOUNT_ADDED: string = "Discount has been added to machine";

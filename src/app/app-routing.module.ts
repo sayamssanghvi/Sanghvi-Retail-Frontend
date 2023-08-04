@@ -18,8 +18,8 @@ const routes: Routes = [
     path: 'repair-retail', component: RepairComponent,
     canActivate: [AuthGuardService]
   },
-  // { path: '**', redirectTo: 'login' }
-  { path:"**", redirectTo:'dashboard'}
+  { path: '**', redirectTo: 'login' }
+  // { path:"**", redirectTo:'dashboard'}
 ];
 
 @NgModule({

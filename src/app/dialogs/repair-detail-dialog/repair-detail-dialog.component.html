@@ -1,179 +1,256 @@
 <div class="container">
-    <div class="header-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div class="header-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div
+      fxLayout="cloumn"
+      fxFlex="33%"
+      class="title text-truncate"
+      fxLayoutAlign="center center"
+    >
+      {{ customerName }}
+    </div>
 
-        <div fxLayout="cloumn" fxFlex="33%" class="title text-truncate" fxLayoutAlign="center center">
-            {{name}}
-        </div>
-
-        <!-- <div fxLayout="cloumn" class="title text-truncate yellow-color faults-title"
+    <!-- <div fxLayout="cloumn" class="title text-truncate yellow-color faults-title"
             [matTooltip]="data.faults.join(', \n')" matTooltipClass="mat-tool-tip"
             [matTooltipPosition]="matToolTipPosition[2]">
             {{formConstants.RR_DIALOG_FAULTS}}<mat-icon style="font-size:12px;" class="yellow-color">info</mat-icon>
         </div> -->
 
-        <!-- <div fxLayout="column" fxFlex="13%">
+    <!-- <div fxLayout="column" fxFlex="13%">
             {{' '}}
         </div> -->
 
-        <div fxLayout="cloumn" fxFlex="31%" class="title text-truncate yellow-color" fxLayoutAlign="center center">
-            #{{data.machineRepairCode}}
-        </div>
-
-        <div fxLayout="column" fxFlex="5%">
-            {{' '}}
-        </div>
-
-        <div fxLayout="cloumn" class="title text-truncate">
-            {{data.date.receivedDate | date:'shortDate'}}
-        </div>
-
-        <div fxLayout="cloumn" fxFlex="" fxLayoutAlign="center center" class="title text-truncate  yellow-color">
-            <mat-icon *ngIf="data.callBeforeRepair">check_circle</mat-icon>
-            <mat-icon *ngIf="!data.callBeforeRepair">highlight_off</mat-icon>
-            CBR
-            <div *ngIf="data.callBeforeRepair">{{data.estimate}}</div>
-        </div>
-
+    <div
+      fxLayout="cloumn"
+      fxFlex="31%"
+      class="title text-truncate yellow-color"
+      fxLayoutAlign="center center"
+    >
+      #{{ data.machineRepairCode }}
     </div>
 
-    <div class="body" fxLayout="row" fxLayoutGap="20px" fxlayoutAlign="start center">
-
-        <div class="body-content" fxLayout="column">
-            <div fxLayout="row" fxLayoutAlign="center">
-                <div class="body-content-title" fxLayoutAlign="center">
-                    {{formConstants.RR_DIALOG_DATES}}
-                </div>
-            </div>
-            <div fxLayout="row" fxFlex="86%">
-                <div class="body-content-main" fxLayout="column" fxFlex="100%">
-
-                    <div class="date-row" fxLayout="row" *ngFor="let i of dates">
-                        <div fxFlex="60%">
-                            {{i.dateName}}
-                        </div>
-                        <div fxFlex="1%">
-                            :
-                        </div>
-                        <div fxFlex="39%" fxLayoutAlign="center">
-                            {{i.time | date:'shortDate'}}
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="body-content" fxLayout="column">
-            <div fxLayout="row" fxLayoutAlign="center">
-                <div class="body-content-title" fxLayoutAlign="center">
-                    {{formConstants.RR_DIALOG_STATUS}}
-                </div>
-                <div>
-                    <mat-icon *ngIf="repairMachineStatusList[6]==data.status">cancel</mat-icon>
-                    <mat-icon *ngIf="repairMachineStatusList[1]==data.status">local_shipping</mat-icon>
-                </div>
-            </div>
-            <div fxLayout="row">
-                <div class="body-content-main" fxLayout="column" fxFlex="100%">
-
-                    <div class="date-row" fxLayout="row">
-                        <div class="yellow-color" fxFlex="100%" fxLayoutAlign="center">
-                            {{data.status}}
-                        </div>
-                    </div>
-
-                </div>
-            </div>  
-            <div fxLayout="row" fxLayoutAlign="center">
-                <div class="body-content-title" fxLayoutAlign="center">
-                    {{formConstants.RR_DIALOG_FAULTS}}
-                </div>
-            </div>
-            <div fxLayout="row" fxFlex="86%">
-                <div class="body-content-main" fxLayout="column" fxFlex="100%">
-
-                    <div class="date-row" *ngFor="let fault of data.faults" fxLayout="row" fxLayoutAlign="center">
-                        {{fault}}
-                    </div>
-            
-                </div>
-            </div>
-        </div>
-
-        <div class="body-content" fxLayout="column">
-            <div fxLayout="row" fxLayoutAlign="center">
-                <div class="body-content-title" fxLayoutAlign="center">
-                    {{formConstants.RR_DIALOG_REPAIR_PARTS}}
-                </div>
-            </div>
-            <div fxLayout="row" fxFlex="86%">
-                <div class="body-content-main" fxLayout="column" fxFlex="100%">
-
-                    <div class="date-row" fxLayout="row">
-                        <div class="underline" fxFlex="50%">
-                            Name
-                        </div>
-                        <div class="underline" fxFlex="25%" fxLayoutAlign="center">
-                            Qty
-                        </div>
-                        <div class="underline" fxFlex="25%" fxLayoutAlign="center">
-                            Rate
-                        </div>
-                    </div>
-
-                    <div class="date-row" fxLayout="row" *ngFor="let part of parts;let i=index">
-                        <div fxFlex="50%">
-                            {{i+1}})&nbsp;{{part.partName}}
-                        </div>
-                        <div fxFlex="25%" fxLayoutAlign="center">
-                            {{part.quantityRequired?part.quantity:1}}
-                        </div>
-                        <div fxFlex="25%" fxLayoutAlign="center">
-                            {{part.price}}
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+    <div fxLayout="column" fxFlex="5%">
+      {{ " " }}
     </div>
 
-    <div class="footer" fxLayout="row" fxLayoutAlign="center">
-
-        <div class="footer-content" fxLayout="column">
-            <div fxLayout="row" fxFlex="100%">
-                <div class="footer-content-title" fxLayout="column" fxLayoutAlign="center">
-                    {{formConstants.RR_DIALOG_TOTAL_VALUE}}&nbsp;:</div>
-                <div class="footer-content-title yellow-color pl5" fxLayout="column" fxLayoutAlign="center center"
-                    fxFlex="30%">600&nbsp;/-Rs</div>
-            </div>
-        </div>
-
-        <div class="footer-content" fxLayout="column">
-            <div fxLayout="row" fxFlex="100%">
-                <div class="footer-content-title" fxLayout="column" fxLayoutAlign="center" fxFlex="40%">
-                    {{formConstants.RR_DIALOG_DISCOUNT}}&nbsp;:</div>
-                <div fxLayout="column" fxFlex="40%">
-                    <div class="discount-box" fxLayout="row" fxLayoutAlign="center center">
-                        <div class="footer-content-title" fxLayout="column" 
-                        fxLayoutAlign="center center"
-                        fxFlex="60%">100%</div>
-                        <div fxLayout="column">
-                            <mat-icon (click)="DiscountClick()">mode_edit</mat-icon>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-content" fxLayout="column">
-            <div fxLayout="row" fxFlex="100%">
-                <div class="footer-content-title" fxLayout="column" fxLayoutAlign="center">
-                    {{formConstants.RR_DIALOG_GRAND_TOTAL}}&nbsp;:</div>
-                <div class="footer-content-title yellow-color pl5" fxLayout="column" fxLayoutAlign="center center"
-                    fxFlex="30%">500&nbsp;/-Rs</div>
-            </div>
-        </div>
+    <div fxLayout="cloumn" class="title text-truncate">
+      {{ data.date.receivedDate | date : "shortDate" }}
     </div>
+
+    <div
+      fxLayout="cloumn"
+      fxFlex=""
+      fxLayoutAlign="center center"
+      class="title text-truncate yellow-color"
+    >
+      <mat-icon *ngIf="data.callBeforeRepair">check_circle</mat-icon>
+      <mat-icon *ngIf="!data.callBeforeRepair">highlight_off</mat-icon>
+      CBR
+      <div *ngIf="data.callBeforeRepair" class="title text-truncate yellow-color">&nbsp;({{ data.estimate }})</div>
+    </div>
+  </div>
+
+  <div class="body" fxLayout="row" fxLayoutGap="20px" fxlayoutAlign="start center">
+    <div class="body-content" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="body-content-title" fxLayoutAlign="center">
+          {{ formConstants.RR_DIALOG_DATES }}
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="86%">
+        <div class="body-content-main" fxLayout="column" fxFlex="100%">
+          <div class="date-row" fxLayout="row" *ngFor="let i of dates">
+            <div fxFlex="60%">
+              {{ i.dateName }}
+            </div>
+            <div fxFlex="1%">:</div>
+            <div fxFlex="39%" fxLayoutAlign="center">
+              {{ i.time | date : "shortDate" }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body-content" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="body-content-title" fxLayoutAlign="center">
+          {{ formConstants.RR_DIALOG_STATUS }}
+        </div>
+        <div>
+          <mat-icon *ngIf="repairMachineStatusList[6] == data.status"
+            >cancel</mat-icon
+          >
+          <mat-icon *ngIf="repairMachineStatusList[1] == data.status"
+            >local_shipping</mat-icon
+          >
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div class="body-content-main" fxLayout="column" fxFlex="100%">
+          <div class="date-row" fxLayout="row">
+            <div class="yellow-color" fxFlex="100%" fxLayoutAlign="center">
+              {{ data.status }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="body-content-title" fxLayoutAlign="center">
+          {{ formConstants.RR_DIALOG_FAULTS }}
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="86%">
+        <div class="body-content-main" fxLayout="column" fxFlex="100%">
+          <div
+            class="date-row"
+            *ngFor="let fault of data.faults"
+            fxLayout="row"
+            fxLayoutAlign="center"
+          >
+            {{ fault }}
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div
+          class="body-content-title-deliver"
+          fxLayoutAlign="center"
+          (click)="deliverToCustomerOrFactory()"
+          *ngIf="data.status == repairMachineStatus.IN_REPAIR"
+        >
+          {{
+              formConstants.SEND_TO_FACTORY
+          }}
+        </div>
+        <div
+          class="body-content-title-deliver"
+          fxLayoutAlign="center"
+          (click)="deliverToCustomerOrFactory()"
+          *ngIf="data.status == repairMachineStatus.REPAIRED"
+        >
+          {{
+              formConstants.DELIVER_TO_CUSTOMER
+          }}
+        </div>
+        <div
+          class="body-content-title-deliver"
+          fxLayoutAlign="center"
+          (click)="deliverToCustomerOrFactory()"
+          *ngIf="data.status == repairMachineStatus.ESTIMATE_SUBMITTED"
+        >
+          {{
+              formConstants.APPROVE_ESTIMATE
+          }}
+        </div>
+      </div>
+    </div>
+
+    <div class="body-content" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="body-content-title" fxLayoutAlign="center">
+          {{ formConstants.RR_DIALOG_REPAIR_PARTS }}
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="86%">
+        <div class="body-content-main" fxLayout="column" fxFlex="100%">
+          <div class="date-row" fxLayout="row">
+            <div class="underline" fxFlex="50%">Name</div>
+            <div class="underline" fxFlex="25%" fxLayoutAlign="center">Qty</div>
+            <div class="underline" fxFlex="25%" fxLayoutAlign="center">
+              Rate
+            </div>
+          </div>
+
+          <div
+            class="date-row"
+            fxLayout="row"
+            *ngFor="let part of parts; let i = index"
+          >
+            <div fxFlex="50%">{{ i + 1 }})&nbsp;{{ part.partName }}</div>
+            <div fxFlex="25%" fxLayoutAlign="center">
+              {{ part.quantityRequired ? part.quantity : 1 }}
+            </div>
+            <div fxFlex="25%" fxLayoutAlign="center">
+              {{ part.price }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" fxLayout="row" fxLayoutAlign="center">
+    <div class="footer-content" fxLayout="column">
+      <div fxLayout="row" fxFlex="100%">
+        <div
+          class="footer-content-title"
+          fxLayout="column"
+          fxLayoutAlign="center"
+        >
+          {{ formConstants.RR_DIALOG_TOTAL_VALUE }}&nbsp;:
+        </div>
+        <div
+          class="footer-content-title yellow-color pl5"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxFlex="45%"
+        >
+          {{ totalAmount }}&nbsp;/-Rs
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-content" fxLayout="column">
+      <div fxLayout="row" fxFlex="100%">
+        <div
+          class="footer-content-title"
+          fxLayout="column"
+          fxLayoutAlign="center"
+          fxFlex="40%"
+        >
+          {{ formConstants.RR_DIALOG_DISCOUNT }}&nbsp;:
+        </div>
+        <div fxLayout="column" fxFlex="40%">
+          <div
+            class="discount-box"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <div
+              class="footer-content-title"
+              fxLayout="column"
+              fxLayoutAlign="center center"
+              fxFlex="60%"
+            >
+              {{ discount }}
+            </div>
+            <div fxLayout="column">
+              <mat-icon (click)="DiscountClick()">mode_edit</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-content" fxLayout="column">
+      <div fxLayout="row" fxFlex="100%">
+        <div
+          class="footer-content-title"
+          fxLayout="column"
+          fxLayoutAlign="center"
+        >
+          {{ formConstants.RR_DIALOG_GRAND_TOTAL }}&nbsp;:
+        </div>
+        <div
+          class="footer-content-title yellow-color pl5"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxFlex="45%"
+        >
+          {{ grandTotal }}&nbsp;/-Rs
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+  

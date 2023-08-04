@@ -9,13 +9,15 @@
             <div class="body-content-main" fxLayout="column" fxFlex="100%" fxLayoutGap="20px">
                 <div fxLayout="row" fxLayoutGap="5px" fxFlex="50%">
                     <label fxLayoutAlign="center center">Discount&nbsp;:&nbsp;</label>
-                    <input type="number" fxFlex="60">&nbsp;&nbsp;%
+                    <input type="number" fxFlex="60" [(ngModel)]="discount">&nbsp;&nbsp;Rs
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="5px" fxFlex="50%">
                     <label fxLayoutAlign="end center" fxFlex="28.5">Reason&nbsp;:&nbsp;</label>
-                    <input type="number" fxFlex="60">
+                    <input fxFlex="60" [(ngModel)]="reason">
                 </div>
+
+                <button mat-raised-button color="accent" (click)="onConfirm()">{{actions.CONFIRM_UPPERCASE}}</button>
             </div>
         </div>
     </div>

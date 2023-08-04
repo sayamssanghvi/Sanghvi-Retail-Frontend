@@ -14,6 +14,9 @@
     <div fxLayout="row"  *ngIf="errors.length">
         <span class="error">{{errors}}</span>
     </div>
+    <div fxLayout="row"  *ngIf="isSubmitEstimate">
+        <span class="estimate-message">{{estimateMessage}}</span>
+    </div>
     <div fxLayout="row" *ngIf="isFetchPartSuccess">
         <span><b> Machine Code : {{machineRepairCode.toUpperCase()}}</b></span>
     </div>
