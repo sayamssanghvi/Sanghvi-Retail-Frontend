@@ -7,7 +7,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href=./",
     "build:digitalocean": "npm install --production=false --force && npm run build && npm ci",
     "test": "ng test",
     "lint": "ng lint",
