@@ -1,0 +1,6 @@
+{
+	"appId": "com.sanghviapps.retail",
+	"appName": "Sanghvi Retail POS",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
