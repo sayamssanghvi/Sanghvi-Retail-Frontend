@@ -5,4 +5,5 @@
 .ctext-color{
     color: #FFD523;
     text-transform: capitalize;
+    cursor: pointer;
 }
