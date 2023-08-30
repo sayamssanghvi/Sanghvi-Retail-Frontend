@@ -7,5 +7,7 @@ export class Actions{
     public CONFIRM_UPPERCASE:string="CONFIRM";
     public CANCEL_UPPERCASE:string="CANCEL";
     public CONFIRM:string="confirm";
-    public CANCEL:string="cancel";
+    public CANCEL: string = "cancel";
+    public OKAY: string = "OKAY";
+    public RESET: string = "RESET";
 }

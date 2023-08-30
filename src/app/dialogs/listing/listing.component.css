@@ -1,0 +1,15 @@
+.list-box {
+    overflow-y: scroll;
+}
+
+.list-box::-webkit-scrollbar {
+    display: none;
+}
+
+.heading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}

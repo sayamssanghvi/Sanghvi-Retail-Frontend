@@ -7,27 +7,33 @@
             <input matInput class="machine-repair-code-input" placeholder="Enter Machine Code..." [(ngModel)]="machineRepairCode" (focus)="onInputFocus()"
             oninput="this.value = this.value.toUpperCase()"/>
         </div>
-        <div fxLayout="column">
-            <button mat-raised-button class="okay-button" (click)="fetchMachineParts()">OKAY</button>
+        <div fxLayout="column" *ngIf="!isFetchPartSuccess">
+            <button mat-raised-button class="okay-button" (click)="fetchMachineParts()">{{actions.OKAY | language}}</button>
+        </div>
+        
+        <div fxLayout="column" *ngIf="isFetchPartSuccess">
+            <button mat-raised-button class="reset-button" (click)="reset()">{{actions.RESET | language}}</button>
         </div>
     </div>
     <div fxLayout="row"  *ngIf="errors.length">
-        <span class="error">{{errors}}</span>
+        <span class="error">{{errors | language}}</span>
     </div>
     <div fxLayout="row"  *ngIf="isSubmitEstimate">
-        <span class="estimate-message">{{estimateMessage}}</span>
+        <span class="estimate-message">{{estimateMessage | language}}</span>
     </div>
-    <div fxLayout="row" *ngIf="isFetchPartSuccess">
-        <span><b> Machine Code : {{machineRepairCode.toUpperCase()}}</b></span>
+    <div fxLayout="row" *ngIf="isFetchPartSuccess" style="width: 60%;" fxLayouAlign="center">
+        <span fxLayout="column" fxLayoutAlign="start" fxFlex="80%"><b> {{miscellaneousConst.MACHINE_CODE  | language}} : {{machineRepairCode.toUpperCase()}}</b></span>
+        <span fxLayout="column" fxLayoutAlign="end" style="color: red; font-weight: 600;" fxFlex="20%"  (click)="faults()">&nbsp;{{miscellaneousConst.FAULTS | language}}</span>
+        <div class="info-icon" alt="" (click)="faults()"></div>
     </div>
     <div fxLayout="row" *ngIf="isFetchPartSuccess" style="width:100%;padding-bottom: 10px;">
         <div fxLayout="column" fxFlex="100%" fxLayoutGap="10px" fxLayoutAlign="center center" style="width:100%">
             <div fxLayout="row" fxLayoutAlign="start center" style="width:80%">
                 <div fxLayout="column" fxFlex="70%">
-                    <u> Parts</u>
+                    <u> {{miscellaneousConst.PARTS | language}}</u>
                 </div>
                 <div fxLayout="column" fxFlex="30%">
-                    <u>Qty</u>
+                    <u>{{miscellaneousConst.QTY | language}}</u>
                 </div>
             </div>
             <div *ngFor="let value of parts" style="width:80%">
@@ -35,7 +41,7 @@
                     <div fxLayout="column" fxFlex="70%">
                         <div fxLayoutAlign="start center">
                             <input type="checkbox" (click)="onSelectPart(value)" style="margin-right:10px;">
-                            <label>{{value.name}}</label>
+                            <label>{{value.name | language}}</label>
                         </div>
                     </div>
                     <div fxLayout="column" fxFlex="20%">
@@ -47,7 +53,7 @@
                 </div>
             </div>
             <div>
-                <button mat-raised-button class="submit-button" (click)="submitParts()">SUBMIT</button>
+                <button mat-raised-button class="submit-button" (click)="submitParts()">{{actions.SUBMIT.toUpperCase() | language}}</button>
             </div>
         </div>
     </div>
