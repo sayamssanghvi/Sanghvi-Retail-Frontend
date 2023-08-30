@@ -20,6 +20,14 @@ export class RepairService {
     };
   }
 
+  private transformQueryParams(url: string, queryParams: any): string {
+    url += '?';
+    for (let key in queryParams) {
+      url += key + '=' + queryParams[key] + '&';
+    }
+    return url;
+  }
+
   // public registerRepairMachine(body:any):Observable<any> {
   //   let url=this.routeMapping.getRepairPartsByMachineCode();
   //   url+=
@@ -44,5 +52,13 @@ export class RepairService {
   public addDiscountToRepairMachine(body: any): Observable<any> {
     let url = this.routeMapping.getAddDiscountUrl();
     return this.http.post(url, body, this.GetAuthToken());
+  }
+
+  public fetchAllRepairMachines(body: any): Observable<any> {
+    let url = this.transformQueryParams(
+      this.routeMapping.getFetchAllRepairMachinesUrl(),
+      body.queryParams
+    );
+    return this.http.get(url, this.GetAuthToken());
   }
 }

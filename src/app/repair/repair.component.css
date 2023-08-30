@@ -27,8 +27,13 @@
     color: black;
 }
 
-.submit-button{
+.submit-button {
     background-color: blue;
+}
+
+.reset-button{
+    background-color: red;
+    color: #E5E5E5;
 }
 
 .error {
@@ -37,8 +42,22 @@
     text-align: center;
 }
 
-.estimate-message{
-    color:blue;
+.estimate-message {
+    color: blue;
     font-weight: bold;
     text-align: center;
+}
+
+.info-icon {
+    width: 24px;
+    height: 18px;
+    display: inline-block;
+    background: red;
+    -webkit-mask: url("../../assets/info.png") center/contain;
+    mask: url("../../assets/info.png") center/contain;
+}
+
+img {
+    width: 24px;
+    height: 24px;
 }

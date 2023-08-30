@@ -74,10 +74,10 @@ export class AdminLoginComponent implements OnInit {
           console.log(response);
           if (response.valid) {
             if (response.role == ROLE.SERVICE) {
-              console.log("Condition is a Success");
+              console.log('Condition is a Success');
               this.router.navigate(['repair-retail']);
             }
-            if (response.role == ROLE.ADMIN)
+            if (response.role == ROLE.ADMIN || response.role == ROLE.MANAGER)
               this.router.navigate(['dashboard']);
           } else {
             this.loginResponse = response.message;
