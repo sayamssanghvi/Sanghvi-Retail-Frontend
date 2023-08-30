@@ -10,6 +10,7 @@ import { Observable, Subscription } from 'rxjs';
 export class AdminService {
   public adminPhoneNumber: string;
   public adminRole: string;
+  public adminLanguage: string;
   // private jwtToken?: any = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY5MjNlZDkyY2Y0NzRlZWNlMWRkMmYiLCJpYXQiOjE2Nzg2MTAxNzcsImV4cCI6MTY3ODY5NjU3N30.gxklBgelnvTflPRZGzGR9S92579uC0KIZ6yHnioAGvY';
   private jwtToken: any;
   private responseObservable: Observable<any>;
@@ -33,6 +34,8 @@ export class AdminService {
             localStorage.setItem('role', res.role);
             this.jwtToken = localStorage.getItem('authToken')?.toString();
             this.adminPhoneNumber = payload.phoneNumber;
+            this.adminRole = res.role;
+            this.adminLanguage = res.language;
             console.log(res.role);
             observer.next({ valid: true, message: '', role: res.role });
             observer.complete();

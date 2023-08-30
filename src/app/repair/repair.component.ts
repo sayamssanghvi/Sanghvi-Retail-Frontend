@@ -9,15 +9,17 @@ import * as _ from 'lodash';
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog.component';
 import { RepairService } from '../services/api/repair.service';
 import { Actions } from '../shared/constants/actions';
+import { PART_NAMES, MISCELLANEOUS } from '../shared/constants/appConstants';
 import {
   ESTIMATE_NOT_APPROVED,
   ESTIMATE_SUBMITTED,
   GIVE_ESTIMATE,
   Messages,
+  CONFRIM_TO_SUBMIT_PARTS,
 } from '../shared/constants/messages';
 import { RepairMachineStatus } from '../shared/constants/repairMachineStatus';
 import { SnackBarService } from '../services/utility/snack-bar.service';
-import { Observable, Subscription } from 'rxjs';
+import { ListingComponent } from '../dialogs/listing/listing.component';
 
 @Component({
   selector: 'app-repair',
@@ -37,6 +39,7 @@ export class RepairComponent implements OnInit {
   matSnachBarVerticalPosition: MatSnackBarVerticalPosition = 'top';
   public actions: Actions = new Actions();
   public messages: Messages = new Messages();
+  public miscellaneousConst: any = MISCELLANEOUS;
   public status: RepairMachineStatus = new RepairMachineStatus();
   public estimateMessage: string = GIVE_ESTIMATE;
 
@@ -44,7 +47,8 @@ export class RepairComponent implements OnInit {
     private repairService: RepairService,
     private snackBar: MatSnackBar,
     private confirmDialog: MatDialog,
-    private snackBarService: SnackBarService
+    private snackBarService: SnackBarService,
+    private listingDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -62,11 +66,20 @@ export class RepairComponent implements OnInit {
       (res) => {
         this.repairSale = res.data.repairSale;
 
+        if (res.data.parts) {
+          res.data.parts = res.data.parts.filter(
+            (x: any) => x.name != PART_NAMES.BASE_REPAIR_CHARGE
+          );
+        }
+
         if (this.repairSale.status == this.status.ESTIMATE_SUBMITTED) {
           this.errors = ESTIMATE_NOT_APPROVED;
         }
 
-        if (this.repairSale.status == this.status.RECEIVED && this.repairSale.callBeforeRepair) {
+        if (
+          this.repairSale.status == this.status.RECEIVED &&
+          this.repairSale.callBeforeRepair
+        ) {
           this.isSubmitEstimate = true;
         }
 
@@ -130,7 +143,7 @@ export class RepairComponent implements OnInit {
       .open(ConfirmDialogComponent, {
         data: {
           action: 'submitRepairParts',
-          message: 'Are you sure you want to submit parts?',
+          message: CONFRIM_TO_SUBMIT_PARTS,
           button: [this.actions.CONFIRM, this.actions.CANCEL],
         },
         width: '320px',
@@ -144,10 +157,7 @@ export class RepairComponent implements OnInit {
           this.repairService.submitRepairParts(payload).subscribe(
             (res) => {
               console.log(res);
-              let message = this.messages.PARTS_SUBMITTED.replace(
-                '{{machineRepairCode}}',
-                this.machineRepairCode
-              );
+              let message = this.messages.PARTS_SUBMITTED;
               this.snackBarService.openSnackBar(message, 7000);
               this.ngOnInit();
             },
@@ -157,22 +167,16 @@ export class RepairComponent implements OnInit {
             }
           );
 
-          let message = this.messages.PARTS_SUBMITTED.replace(
-            '{{machineRepairCode}}',
-            this.machineRepairCode
-          );
+          let message = this.messages.PARTS_SUBMITTED;
 
           if (this.isSubmitEstimate) {
             message = ESTIMATE_SUBMITTED;
           }
 
           this.snackBarService.openSnackBar(message, 3000, () => {
-            this.isFetchPartSuccess = false;
-            this.parts = [];
-            this.machineRepairCode = '';
+            this.reset();
             console.log('Reset');
           });
-          this.isSubmitEstimate = false;
         }
       });
   }
@@ -185,7 +189,17 @@ export class RepairComponent implements OnInit {
     part.check = !part.check;
   }
 
-  
+  faults(): void {
+    this.listingDialog.open(ListingComponent, {
+      data: {
+        heading: 'Faults',
+        list: this.repairSale.faults,
+      },
+      width: '320px',
+      height: '300px',
+      panelClass: 'custom-mat-dailog',
+    });
+  }
 
   //Opens SnackBar
   private openSnackBar(
@@ -204,5 +218,12 @@ export class RepairComponent implements OnInit {
       .subscribe(() => {
         callback();
       });
+  }
+
+  reset() {
+    this.isFetchPartSuccess = false;
+    this.parts = [];
+    this.machineRepairCode = '';
+    this.isSubmitEstimate = false;
   }
 }

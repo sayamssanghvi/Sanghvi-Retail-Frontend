@@ -9,7 +9,7 @@ export class Messages {
     public CUSTOMER_REGISTERED: string = 'Customer has been Registered';
     public ENTER_PHNO: string = "Please enter a PhoneNumber to view sales/repair";
     public NO_RECORDS_FOUND: string = "No records found for this phoneNumber";
-    public PARTS_SUBMITTED: string = "Parts have been submitted for {{machineRepairCode}}";
+    public PARTS_SUBMITTED: string = "Parts have been submitted";
     public ENETR_A_REASON: string = 'Please enter a reason';
     public DELIVERED_TO_CUSTOMER: string = "Machine delivered to customer";
 }
@@ -21,6 +21,8 @@ export const CONFIRM_TO_SEND_TO_FACTORY: string =
   'Are you sure you want to send to factory?';
 export const CONFIRM_TO_APPROVE_ESTIMATE: string =
   "Are you sure you want to approve the estimate?";
+export const CONFRIM_TO_SUBMIT_PARTS: string =
+  'Are you sure you want to submit parts?';
 
 //Snack Bar Messages
 export const MACHINE_SENT_TO_FACTORY: string = "Machine sent to Factory";

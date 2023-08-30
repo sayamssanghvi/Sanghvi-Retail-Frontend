@@ -1,9 +1,9 @@
 <div class="confirm-dialog-body" style="width:100%;height: 100%;">
     <div fxLayout="row" fxLayoutAlign="center start" style="text-align: center;height:50%">
-        {{data.message}}
+        {{data.message | language}}
     </div>
     <div fxLayout="row" fxLayoutAlign="center end" fxLayoutGap="10px" style="height:50%;">
-        <button mat-raised-button color="accent" (click)="onConfirm()">{{actions.CONFIRM_UPPERCASE}}</button>
-        <button mat-flat-button color="warn" (click)="onCancel()">{{actions.CANCEL_UPPERCASE}}</button>
+        <button mat-raised-button color="accent" (click)="onConfirm()">{{actions.CONFIRM_UPPERCASE | language}}</button>
+        <button mat-flat-button color="warn" (click)="onCancel()">{{actions.CANCEL_UPPERCASE | language}}</button>
     </div>
 </div>

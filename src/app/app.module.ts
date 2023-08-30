@@ -33,6 +33,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
 import { SnackBarService } from './services/utility/snack-bar.service';
+import { ListingComponent } from './dialogs/listing/listing.component';
+import { LanguagePipe } from './pipes/language.pipe';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { SnackBarService } from './services/utility/snack-bar.service';
     DiscountComponent,
     RepairComponent,
     ConfirmDialogComponent,
+    ListingComponent,
+    LanguagePipe,
   ],
   imports: [
     BrowserModule,

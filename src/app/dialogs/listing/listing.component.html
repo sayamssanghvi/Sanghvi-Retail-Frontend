@@ -1,0 +1,10 @@
+<div style="width:100%;">
+    <div fxLayout="row" fxLayoutAlign="center start" class="heading">
+        {{data.heading | language}}
+    </div>
+    <div class="list-box" *ngFor="let value of data.list;let i =index">
+        <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="10px">
+            <div>{{i+1}})&nbsp;{{value | language}}</div>
+        </div>
+    </div>
+</div>
