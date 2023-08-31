@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class RouteMappingService {
   //Dev
-  private BASE_API_URL: string = 'http://localhost:3000';
-  // private BASE_API_URL = 'https://sanghvi-retail-backend.glitch.me';
+  // private BASE_API_URL: string = 'http://localhost:3000';
+  private BASE_API_URL = 'https://faint-dour-slip.glitch.me/';
 
   //Customer Router
   private CUSTOMER_GET_DETAILS: string = '/customer/getdetails/';
@@ -66,7 +66,7 @@ export class RouteMappingService {
     return this.BASE_API_URL + this.REPAIR_ADD_DISCOUNT;
   }
 
-  public getFetchAllRepairMachinesUrl(): string{
+  public getFetchAllRepairMachinesUrl(): string {
     return this.BASE_API_URL + this.REPAIR_FETCH_ALL_MACHINES;
   }
 
